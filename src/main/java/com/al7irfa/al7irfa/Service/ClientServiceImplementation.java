@@ -11,14 +11,14 @@ import java.util.List;
 public class ClientServiceImplementation {
 
 
-        private  ClientRepository clientRepository ;
+    private ClientRepository clientRepository ;
 
-        @Autowired
+    @Autowired
     public ClientServiceImplementation(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
-      public Client findClientById(Integer id){
+    public Client findClientById(Integer id){
 
                 return clientRepository.findById(id).orElse(null);
 
