@@ -2,6 +2,8 @@
 package com.al7irfa.al7irfa.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,12 +32,18 @@ public Client(int id , String fn ,String ln ,String email, String password ,
 }
 
     @OneToMany(mappedBy = "client")
+//    @JsonIgnore
+    @JsonManagedReference
     private Collection<Consultation>consultations;
 
     @OneToOne(mappedBy = "client")
+//    @JsonIgnore
+    @JsonManagedReference
     private Reclamation reclamation;
 
     @OneToOne(mappedBy = "client")
+//    @JsonIgnore
+    @JsonManagedReference
     private Paiement paiement;
 
 

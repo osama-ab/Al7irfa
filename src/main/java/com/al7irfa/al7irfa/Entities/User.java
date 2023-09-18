@@ -39,7 +39,7 @@ public class User implements UserDetails {
 
 //    @Lob
 //    @Column(name = "image", columnDefinition = "BLOB")
-//    private byte[] image;
+//    private byte[] image ;
 
 
 

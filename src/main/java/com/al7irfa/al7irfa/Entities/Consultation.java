@@ -1,5 +1,7 @@
 package com.al7irfa.al7irfa.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +15,7 @@ import java.util.Date;
 @Entity @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Consultation {
 
 
@@ -24,10 +27,13 @@ public class Consultation {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
+    @JsonBackReference
+
     private Client client;
 
     @ManyToOne
     @JoinColumn(name = "ouvrier_id")
+    @JsonBackReference
     private Ouvrier ouvrier;
 
     @OneToOne
@@ -35,6 +41,7 @@ public class Consultation {
     private Review review;
 
     @OneToOne(mappedBy = "consultation")
+    @JsonManagedReference
     private Reclamation reclamation;
 
 

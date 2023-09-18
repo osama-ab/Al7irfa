@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/Consultation")
 @CrossOrigin("*")
@@ -21,13 +23,26 @@ public class ConsultationControlller {
 
 
 
+//    @PostMapping("/create")
+//    public ResponseEntity<String> createConsultation(
+//            @RequestParam("client_id") Integer clientEmail,
+//            @RequestParam("ouvrier_id") Integer ouvrierEmail) {
+//
+//        consultationServiceImplementation.createConsultation(clientEmail, ouvrierEmail);
+//        return ResponseEntity.ok("Consultation created successfully.");
+//    }
+
     @PostMapping("/create")
-    public ResponseEntity<String> createConsultation(
-            @RequestParam("client_id") String clientEmail,
-            @RequestParam("ouvrier_id") String ouvrierEmail) {
+    public ResponseEntity<String> createConsultation(Integer clientEmail,Integer ouvrierEmail)
+    {
 
         consultationServiceImplementation.createConsultation(clientEmail, ouvrierEmail);
         return ResponseEntity.ok("Consultation created successfully.");
+    }
+
+    @GetMapping("/FindAll")
+    public List<Consultation>findcst(){
+       return consultationServiceImplementation.findAll();
     }
 
 

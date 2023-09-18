@@ -1,5 +1,7 @@
 package com.al7irfa.al7irfa.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,18 +33,23 @@ public class Ouvrier extends User{
 
     @OneToOne
     @JoinColumn(name = "metier_id")
+    @JsonManagedReference
     private Metier metier;
 
     @OneToOne(mappedBy = "ouvrier")
+    @JsonManagedReference
     private Rating rating;
 
     @OneToMany(mappedBy = "ouvrier")
+    @JsonManagedReference
     private Collection<Consultation>consultations;
 
     @OneToOne(mappedBy = "ouvrier")
+    @JsonManagedReference
     private Reclamation reclamation;
 
     @OneToOne(mappedBy = "ouvrier")
+    @JsonManagedReference
     private Paiement paiement;
 
 

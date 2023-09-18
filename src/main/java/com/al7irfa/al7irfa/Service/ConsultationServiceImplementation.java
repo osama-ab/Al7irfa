@@ -52,10 +52,28 @@ public class ConsultationServiceImplementation {
         return consultationRepository.findAll();
     }
 
-    public void createConsultation(String clientEmail , String ouvrierEmail ) {
+//    public void createConsultation(String clientEmail , String ouvrierEmail ) {
+//
+//        Client client = clientRepository.findClientByEmail(clientEmail) ;
+//        Ouvrier ouvrier = ouvrierRepository.findOuvrierByEmail(ouvrierEmail);
+//
+//
+//        Consultation consultation = new Consultation();
+//        consultation.setConsultationDate(new Date());
+//        consultation.setClient(client);
+//        consultation.setOuvrier(ouvrier);
+//        consultationRepository.save(consultation);
+//
+//
+//
+//
+//    }
 
-        Client client = clientRepository.findClientByEmail(clientEmail) ;
-        Ouvrier ouvrier = ouvrierRepository.findOuvrierByEmail(ouvrierEmail);
+
+    public void createConsultation(Integer clientEmail , Integer ouvrierEmail ) {
+
+        Client client = clientRepository.getById(1) ;
+        Ouvrier ouvrier = ouvrierRepository.getById(2);
 
 
         Consultation consultation = new Consultation();

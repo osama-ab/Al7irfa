@@ -1,5 +1,6 @@
 package com.al7irfa.al7irfa.Service;
 
+import com.al7irfa.al7irfa.Entities.Categorie;
 import com.al7irfa.al7irfa.Entities.Client;
 import com.al7irfa.al7irfa.Entities.Ouvrier;
 import com.al7irfa.al7irfa.Repository.ClientRepository;
@@ -7,6 +8,7 @@ import com.al7irfa.al7irfa.Repository.OuvrierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,5 +39,16 @@ public class OuvrierServiceImplementation {
     public List<Ouvrier> findAll(){
 
         return ouvrierRepository.findAll();
+    }
+
+    public List<Ouvrier>FindOuvByParams(String ville){
+         return ouvrierRepository.findAllByVille(ville);
+
+
+
+    }
+
+    public List<Ouvrier>FilterByVilleAndCat(String ville){
+      return ouvrierRepository.findAllByCategorie(Categorie.Electricien);
     }
 }

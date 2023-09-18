@@ -1,5 +1,6 @@
 package com.al7irfa.al7irfa.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +18,12 @@ public class Paiement {
 
     @OneToOne
     @JoinColumn(name = "id_client")
+    @JsonBackReference
     private Client client;
 
     @OneToOne
     @JoinColumn(name = "id_ouvrier")
+    @JsonBackReference
     private Ouvrier ouvrier;
     private Double montant;
 }
